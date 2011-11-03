@@ -1,3 +1,9 @@
+# revision 15878
+# category Package
+# catalog-ctan /fonts/cyrillic/lh
+# catalog-date 2009-09-21 21:37:51 +0200
+# catalog-license lppl
+# catalog-version 3.5g
 Name:		texlive-lh
 Version:	3.5g
 Release:	1
@@ -751,6 +757,7 @@ fonts, CM bright shaped fonts and Concrete shaped fonts.
 %doc %{_texmfdistdir}/source/latex/lh/ot2fonts.ins
 %doc %{_texmfdistdir}/source/latex/lh/t2ccfonts.fdd
 %doc %{_texmfdistdir}/source/latex/lh/t2ccfonts.ins
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -761,3 +768,5 @@ fonts, CM bright shaped fonts and Concrete shaped fonts.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar fonts tex doc source %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
