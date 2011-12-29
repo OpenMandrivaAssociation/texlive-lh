@@ -19,9 +19,6 @@ BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
 Requires(post):	texlive-kpathsea
 Requires:	texlive-ec
-Conflicts:	texlive-texmf <= 20110705-3
-Conflicts:	texlive-doc <= 20110705-3
-Conflicts:	texlive-source <= 20110705-3
 
 %description
 The LH fonts address the problem of the wide variety of
@@ -36,20 +33,12 @@ Adobe Type 1 format, in the CM-Super family of fonts. The
 package also offers its own LaTeX support for OT2 encoded
 fonts, CM bright shaped fonts and Concrete shaped fonts.
 
-%pre
-    %_texmf_mktexlsr_pre
-
 %post
-    %_texmf_mktexlsr_post
-
-%preun
-    if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_pre
-    fi
+    %{_sbindir}/texlive.post
 
 %postun
     if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_post
+	%{_sbindir}/texlive.post
     fi
 
 #-----------------------------------------------------------------------
@@ -758,7 +747,6 @@ fonts, CM bright shaped fonts and Concrete shaped fonts.
 %doc %{_texmfdistdir}/source/latex/lh/ot2fonts.ins
 %doc %{_texmfdistdir}/source/latex/lh/t2ccfonts.fdd
 %doc %{_texmfdistdir}/source/latex/lh/t2ccfonts.ins
-%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -769,5 +757,3 @@ fonts, CM bright shaped fonts and Concrete shaped fonts.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar fonts tex doc source %{buildroot}%{_texmfdistdir}
-mkdir -p %{buildroot}%{_tlpkgobjdir}
-cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
