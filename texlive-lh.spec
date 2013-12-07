@@ -6,7 +6,7 @@
 # catalog-version 3.5g
 Name:		texlive-lh
 Version:	3.5g
-Release:	4
+Release:	5
 Summary:	Cyrillic fonts that support LaTeX standard encodings
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/fonts/cyrillic/lh
