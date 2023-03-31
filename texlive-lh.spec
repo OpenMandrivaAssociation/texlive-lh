@@ -1,6 +1,6 @@
 Name:		texlive-lh
 Version:	15878
-Release:	1
+Release:	2
 Summary:	Cyrillic fonts that support LaTeX standard encodings
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/fonts/cyrillic/lh
